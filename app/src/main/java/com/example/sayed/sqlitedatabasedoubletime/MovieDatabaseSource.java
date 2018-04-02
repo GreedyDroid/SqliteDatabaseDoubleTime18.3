@@ -2,7 +2,11 @@ package com.example.sayed.sqlitedatabasedoubletime;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.widget.Toast;
+
+import java.util.ArrayList;
 
 public class MovieDatabaseSource {
     private MovieDatabaseHelper movieDatabaseHelper;
@@ -30,5 +34,28 @@ public class MovieDatabaseSource {
         }else {
             return false;
         }
+    }
+
+    public ArrayList<Movie> getAllMovies() {
+        ArrayList<Movie>movies = new ArrayList<>();
+        this.open();
+        /*Cursor cursor = sqLiteDatabase.rawQuery("select * form "+movieDatabaseHelper
+                                .TABLE_NAME, null);*/
+        Cursor cursor = sqLiteDatabase.query(movieDatabaseHelper.TABLE_NAME,
+                    null, null, null,null,null,null);
+
+        if (cursor.moveToFirst()){
+            do {
+                int id = cursor.getInt(cursor.getColumnIndex(MovieDatabaseHelper.COL_ID));
+                String movieName = cursor.getString(cursor.getColumnIndex(MovieDatabaseHelper.COL_NAME));
+                String movieYear = cursor.getString(cursor.getColumnIndex(MovieDatabaseHelper.COL_YEAR));
+                Movie movie = new Movie(id, movieName,movieYear, R.mipmap.ic_launcher_round );
+                movies.add(movie);
+            }while (cursor.moveToNext());
+        }
+        cursor.close();
+        this.close();
+
+        return movies;
     }
 }
