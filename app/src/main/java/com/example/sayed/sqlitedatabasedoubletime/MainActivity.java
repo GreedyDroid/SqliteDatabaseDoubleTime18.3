@@ -1,5 +1,6 @@
 package com.example.sayed.sqlitedatabasedoubletime;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -36,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
             movie = new Movie(name, year);
             boolean status = movieDatabaseSource.addMovie(movie);
             if (status){
-                Toast.makeText(this, "Success", Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(MainActivity.this, MovieListActity.class));
             }else {
                 Toast.makeText(this, "Could Not Connect", Toast.LENGTH_SHORT).show();
             }

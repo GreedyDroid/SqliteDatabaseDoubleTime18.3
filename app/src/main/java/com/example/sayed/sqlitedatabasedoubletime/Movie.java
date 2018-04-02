@@ -1,15 +1,15 @@
 package com.example.sayed.sqlitedatabasedoubletime;
 
 public class Movie {
+    private int movieID;
     private String movieName;
     private String movieYear;
-    private int movieID;
     private  int movieImg;
 
-    public Movie(String movieName, String movieYear, int movieID, int movieImg) {
+    public Movie(int movieID, String movieName, String movieYear, int movieImg) {
+        this.movieID = movieID;
         this.movieName = movieName;
         this.movieYear = movieYear;
-        this.movieID = movieID;
         this.movieImg = movieImg;
     }
 
@@ -18,7 +18,7 @@ public class Movie {
         this.movieYear = movieYear;
     }
 
-    public Movie() {
+    public Movie(int id, String movieName, String name, String movieYear, int ic_launcher_round) {
     }
 
     public String getMovieName() {
