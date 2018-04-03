@@ -5,11 +5,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".MovieListActity">
+    tools:context=".MovieListActivity">
 
     <ListView
         android:id="@+id/movieListViewID"
         android:layout_width="match_parent"
+        android:longClickable="true"
         android:layout_height="wrap_content">
 
     </ListView>
