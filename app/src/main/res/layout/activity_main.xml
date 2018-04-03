@@ -18,6 +18,7 @@
         android:layout_height="wrap_content"
         android:hint="Enter Movie Year"/>
     <Button
+        android:id="@+id/submitBT"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="15dp"
@@ -25,5 +26,10 @@
         android:textAllCaps="false"
         android:onClick="submitBT"
         android:text="Submit"/>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="goToMovieList"
+        android:text="Movie List"/>
 
 </LinearLayout>
